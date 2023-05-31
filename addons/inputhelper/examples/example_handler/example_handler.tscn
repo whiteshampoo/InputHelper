@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddf88risvuf4b"]
+
+[ext_resource type="Script" path="res://addons/inputhelper/input_handler.gd" id="1_ee5fl"]
+[ext_resource type="Resource" uid="uid://ba2h4emfpnily" path="res://addons/inputhelper/examples/input_ui.tres" id="2_n3uik"]
+[ext_resource type="Resource" uid="uid://dn78tbhxgg45d" path="res://addons/inputhelper/examples/input_player.tres" id="3_y4n85"]
+
+[node name="FakeAutoload" type="Node"]
+script = ExtResource("1_ee5fl")
+inputs = Array[Resource("res://addons/inputhelper/input_resource.gd")]([ExtResource("2_n3uik"), ExtResource("3_y4n85")])

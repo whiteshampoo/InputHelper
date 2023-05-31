@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InputResource" load_steps=2 format=3 uid="uid://ba2h4emfpnily"]
+
+[ext_resource type="Script" path="res://addons/inputhelper/input_resource.gd" id="1_87qu5"]
+
+[resource]
+script = ExtResource("1_87qu5")
+left = "ui_left"
+right = "ui_right"
+up = "ui_up"
+down = "ui_down"
+signals = {
+"quit": "ui_cancel"
+}

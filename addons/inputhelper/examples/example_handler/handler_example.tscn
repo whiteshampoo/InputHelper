@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvss8vk7ti8bk"]
+
+[ext_resource type="Script" path="res://addons/inputhelper/examples/example_handler/handler_example.gd" id="1_wkmhc"]
+[ext_resource type="PackedScene" uid="uid://k55pht8yp0nj" path="res://addons/inputhelper/examples/example_resource/resource_player.tscn" id="3_6evqv"]
+[ext_resource type="Script" path="res://addons/inputhelper/examples/example_handler/handler_player.gd" id="3_rthp5"]
+[ext_resource type="PackedScene" uid="uid://ddf88risvuf4b" path="res://addons/inputhelper/examples/example_handler/example_handler.tscn" id="4_vdglu"]
+
+[node name="ResourceExample" type="Node2D"]
+script = ExtResource("1_wkmhc")
+
+[node name="Player" parent="." instance=ExtResource("3_6evqv")]
+position = Vector2(200, 200)
+script = ExtResource("3_rthp5")
+movement_speed = 256.0
+rotation_speed = 1.5708
+player = 1
+
+[node name="FakeAutoload" parent="." instance=ExtResource("4_vdglu")]

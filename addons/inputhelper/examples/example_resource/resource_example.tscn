@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://cx0ivl7gqo1cf"]
+
+[ext_resource type="Script" path="res://addons/inputhelper/examples/example_resource/resource_example.gd" id="1_6tx6r"]
+[ext_resource type="Resource" uid="uid://ba2h4emfpnily" path="res://addons/inputhelper/examples/input_ui.tres" id="2_ncbup"]
+[ext_resource type="PackedScene" uid="uid://k55pht8yp0nj" path="res://addons/inputhelper/examples/example_resource/resource_player.tscn" id="3_ibvyg"]
+[ext_resource type="Resource" uid="uid://dn78tbhxgg45d" path="res://addons/inputhelper/examples/input_player.tres" id="4_uimru"]
+
+[node name="ResourceExample" type="Node2D"]
+script = ExtResource("1_6tx6r")
+input = ExtResource("2_ncbup")
+
+[node name="Player" parent="." instance=ExtResource("3_ibvyg")]
+position = Vector2(200, 200)
+input = ExtResource("4_uimru")
+speed = null
