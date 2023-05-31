@@ -16,4 +16,4 @@ mono_crash.*.jso
 
 # Ignore other plugins
 addons/*/
-!addons/inputhandler/
+!addons/inputhelper/
