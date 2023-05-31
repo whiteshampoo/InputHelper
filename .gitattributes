@@ -5,3 +5,4 @@
 /**        export-ignore
 /addons    !export-ignore
 /addons/inputhelper !export-ignore
+/addons/inputhelper/* !export-ignore
