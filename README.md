@@ -72,19 +72,7 @@ The parameter `input` in the following methods is the index of the `inputs`-arra
 
 ## Usage/Examples
 
-### InputResource
-```gdscript
-@export var input: InputResource = null # edit in inspector
-
-func _ready() -> void:
-	input.init()
-	input.connect_pressed("quit", get_tree().quit)
-
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_type():
-		input.update()
-```
+Usually you want to use the InputHandlerNode as an `Autoload` and use it as proxy to use the InputResource-functionality ...
 
 ### InputHandlerNode
 This requires an `Autoload` with name "InputHandler"
@@ -102,6 +90,23 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 ```
+
+... but you can also use the InputResource directly:
+
+### InputResource
+```gdscript
+@export var input: InputResource = null # edit in inspector
+
+func _ready() -> void:
+	input.init()
+	input.connect_pressed("quit", get_tree().quit)
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_type():
+		input.update()
+```
+
 ## Authors
 
 - [Benedikt Wicklein](https://github.com/whiteshampoo)
