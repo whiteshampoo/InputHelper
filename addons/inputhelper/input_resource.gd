@@ -27,7 +27,7 @@ const SUFFIX_RELEASED: String = "_released"
 @export var down: String = "ui_down"
 @export_category("Actions")
 ## List for the generation of user signals in [method init].
-@export var signals: Dictionary= {
+@export var signals: Dictionary = {
 	"accept": "ui_accept",
 	"select": "ui_select",
 	"cancel": "ui_cancel",
