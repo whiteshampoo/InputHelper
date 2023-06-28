@@ -1,5 +1,6 @@
 # CC0 by Benedikt Wicklein 2023
-class_name InputResource # v1.4
+@tool
+class_name InputResource # v1.5
 extends Resource
 
 ## Resource for input-handling
@@ -16,16 +17,11 @@ extends Resource
 const SUFFIX_PRESSED: String = "_pressed"
 const SUFFIX_RELEASED: String = "_released"
 
-@export_category("Axis")
-## Input Map Action for negative x-axis.
-@export var left: String = "ui_left"
-## Input Map Action for positive x-axis.
-@export var right: String = "ui_right"
-## Input Map Action for negative y-axis
-@export var up: String = "ui_up"
-## Input Map Action for positive y-axis.
-@export var down: String = "ui_down"
-@export_category("Actions")
+@export_category("Axes")
+## List of axes to use with e.g. [code]get_vector(num)[/code]
+@export var axes: Array[InputAxis] = [InputAxis.new()]
+
+@export_category("Signals")
 ## List for the generation of user signals in [method init].
 @export var signals: Dictionary = {
 	"accept": "ui_accept",
@@ -35,6 +31,16 @@ const SUFFIX_RELEASED: String = "_released"
 	set(new_signals):
 		signals = new_signals
 		init()
+
+
+var _new: bool = true
+
+func _init() -> void:
+	return
+	if not _new:
+		return
+	_new = false
+	axes.append(InputAxis.new())
 
 
 ## Generates user-signals for all actions in Array [member signals]
@@ -79,26 +85,23 @@ func is_pressed(action: String) -> bool:
 		return false
 
 
-## Shortcut for [code]Input.get_vector(left, right, up, down)[/code].
-func get_vector() -> Vector2:
-	return Input.get_vector(left, right, up, down)
+## Shortcut for [code]Input.get_vector(left, right, up, down)[/code] for axis [code]axis[/code].
+func get_vector(axis: int = 0) -> Vector2:
+	return axes[axis].get_vector()
 
 
-## Shortcut to get a non-normalized input-vector.
-func get_square_vector() -> Vector2:
-	return Vector2(
-		Input.get_axis(left, right),
-		Input.get_axis(up, down),
-	)
+## Shortcut to get a non-normalized input-vector for axis [code]axis[/code].
+func get_square_vector(axis: int = 0) -> Vector2:
+	return axes[axis].get_square_vector()
 
-## Shortcut for [code]Input.get_axis(left, right)[/code].
-func get_x_axis() -> float:
-	return Input.get_axis(left, right)
+## Shortcut for [code]Input.get_axis(left, right)[/code] for axis [code]axis[/code].
+func get_x_axis(axis: int = 0) -> float:
+	return axes[axis].get_x_axis()
 
 
-## Shortcut for [code]Input.get_axis(up, down)[/code].
-func get_y_axis() -> float:
-	return Input.get_axis(up, down)
+## Shortcut for [code]Input.get_axis(up, down)[/code] for axis [code]axis[/code].
+func get_y_axis(axis: int = 0) -> float:
+	return axes[axis].get_y_axis()
 
 
 ## Connects pressed-[code]action[/code]. This action must exist in [member signals]

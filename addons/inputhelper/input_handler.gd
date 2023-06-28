@@ -1,5 +1,5 @@
 # CC0 by Benedikt Wicklein 2023
-class_name InputHandlerNode # v1.2 (requires InputResource 1.4)
+class_name InputHandlerNode # v1.3 (requires InputResource v1.5)
 extends Node
 
 ## Autoload Input Handler
@@ -49,24 +49,24 @@ func is_pressed(action: String, input: int = 0) -> bool:
 	return inputs[input].is_pressed(action)
 
 
-## Returns a normalized input-vector from [code]input[/code]
-func get_vector(input: int = 0) -> Vector2:
-	return inputs[input].get_vector()
+## Returns a normalized input-vector from [code]input[/code] for axis [code]axis[/code].
+func get_vector(input: int = 0, axis: int = 0) -> Vector2:
+	return inputs[input].get_vector(axis)
 
 
-## Returns a non-normalized input-vector from [code]input[/code]
-func get_square_vector(input: int = 0) -> Vector2:
-	return inputs[input].get_square_vector()
+## Returns a non-normalized input-vector from [code]input[/code] for axis [code]axis[/code].
+func get_square_vector(input: int = 0, axis: int = 0) -> Vector2:
+	return inputs[input].get_square_vector(axis)
 
 
-## Returns the value of the x-axis from [code]input[/code]
-func get_x_axis(input: int = 0) -> float:
-	return inputs[input].get_x_axis()
+## Returns the value of the x-axis from [code]input[/code] for axis [code]axis[/code].
+func get_x_axis(input: int = 0, axis: int = 0) -> float:
+	return inputs[input].get_x_axis(axis)
 
 
-## Returns the value of the y-axis from [code]input[/code]
-func get_y_axis(input: int = 0) -> float:
-	return inputs[input].get_y_axis()
+## Returns the value of the y-axis from [code]input[/code] for axis [code]axis[/code].
+func get_y_axis(input: int = 0, axis: int = 0) -> float:
+	return inputs[input].get_y_axis(axis)
 
 
 ## Connects the pressed-signal for the given [code]action[/code] of [code]input[/code].
