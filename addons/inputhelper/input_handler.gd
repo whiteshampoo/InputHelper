@@ -8,11 +8,13 @@ extends Node
 ## to easily access input for one or more inputs/players.
 ## Add at least one [InputResource] to [member inputs]. 
 
+
 ## List of [InputResource]s. Default-input will be item 0.
 @export var inputs: Array[InputResource]:
 	set(new_inputs):
 		inputs = new_inputs
 		init()
+
 
 ## Signals will be automatically fired if this is [code]true[/code][br]
 ## In other words: This disables [method _input] for this Node,

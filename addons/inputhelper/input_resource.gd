@@ -33,16 +33,6 @@ const SUFFIX_RELEASED: String = "_released"
 		init()
 
 
-var _new: bool = true
-
-func _init() -> void:
-	return
-	if not _new:
-		return
-	_new = false
-	axes.append(InputAxis.new())
-
-
 ## Generates user-signals for all actions in Array [member signals]
 ## with suffixes defined in [constant SUFFIX_PRESSED] and [constant SUFFIX_RELEASED].
 func init() -> void:

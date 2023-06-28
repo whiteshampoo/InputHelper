@@ -1,11 +1,16 @@
-[gd_resource type="Resource" script_class="InputResource" load_steps=2 format=3 uid="uid://dn78tbhxgg45d"]
+[gd_resource type="Resource" script_class="InputResource" load_steps=4 format=3 uid="uid://dn78tbhxgg45d"]
 
+[ext_resource type="Script" path="res://addons/inputhelper/input_axis.gd" id="1_hcr65"]
 [ext_resource type="Script" path="res://addons/inputhelper/input_resource.gd" id="1_kxvmc"]
 
-[resource]
-script = ExtResource("1_kxvmc")
+[sub_resource type="Resource" id="Resource_hdbo7"]
+script = ExtResource("1_hcr65")
 left = "ui_left"
 right = "ui_right"
 up = "ui_up"
 down = "ui_down"
+
+[resource]
+script = ExtResource("1_kxvmc")
+axes = Array[ExtResource("1_hcr65")]([SubResource("Resource_hdbo7")])
 signals = {}

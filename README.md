@@ -25,10 +25,7 @@ Do whatever you want. Attribution not required but appreciated.
 #### Properties
 | Property | Type | Description |
 | :- | :-: | :- |
-| `left` | `String` | Action for negative x-axis. |
-| `right` | `String` | Action for positive x-axis. |
-| `up` | `String` | Action for negative y-axis |
-| `down` | `String` | Action for positive y-axis. |
+| `axes` | `Array[InputAxis]` | List of axes to use with e.g. `get_vector(num)` |
 | `signals` | `Dictionary` | List for the generation of user signals in `init`. |
 
 #### Methods
@@ -37,10 +34,10 @@ Do whatever you want. Attribution not required but appreciated.
 | `init()` | `void` | Create signals for all attached actions. |
 | `update()` | `void` | Checks inputs and fires signals. |
 | `is_pressed(action: String)` | `bool` | Check if action is currently pressed. |
-| `get_vector()` | `Vector2` | Gets normalized input for x- and y-axis. |
-| `get_square_vector()` | `Vector2` | Gets input for x- and y-axis. |
-| `get_x_axis()` | `float` | Gets input for `left`/`right`. |
-| `get_y_axis()` | `float` | Gets input for `up`/`down`. |
+| `get_vector(axis: int)` | `Vector2` | Gets normalized input for x- and y-axis for axis `axis`. |
+| `get_square_vector(axis: int)` | `Vector2` | Gets input for x- and y-axis for axis `axis`. |
+| `get_x_axis(axis: int)` | `float` | Gets input for `left`/`right` for axis `axis`. |
+| `get_y_axis(axis: int)` | `float` | Gets input for `up`/`down` for axis `axis`. |
 | `connect_pressed(action: String, callable: Callable, flags: int = 0)` | `Error` | Connects a signal to pressed-action defined in `signals`. |
 | `connect_released(action: String, callable: Callable, flags: int = 0)` | `Error` | Connects a signal to released-action defined in `signals`. |
 | `disconnect_pressed(action: String, callable: Callable)` | `Error` | Disconnects a signal to pressed-action defined in `signals`. |
@@ -61,10 +58,10 @@ The parameter `input` in the following methods is the index of the `inputs`-arra
 | `init()` | `void` | Create signals for all attached actions. (Auto-called in `_ready`) |
 | `update()` | `void` | Checks inputs and fires signals. (Auto-called if `auto_update` is `true`)|
 | `is_pressed(action: String, input: int = 0)` | `bool` | Check if action is currently pressed. |
-| `get_vector(input: int = 0)` | `Vector2` | Gets normalized input for x- and y-axis. |
-| `get_square_vector(input: int = 0)` | `Vector2` | Gets input for x- and y-axis. |
-| `get_x_axis(input: int = 0)` | `float` | Gets input for `left`/`right`. |
-| `get_y_axis(input: int = 0)` | `float` | Gets input for `up`/`down`. |
+| `get_vector(input: int = 0, axis: int)` | `Vector2` | Gets normalized input for x- and y-axis for axis `axis`. |
+| `get_square_vector(input: int = 0, axis: int)` | `Vector2` | Gets input for x- and y-axis for axis `axis`. |
+| `get_x_axis(input: int = 0, axis: int)` | `float` | Gets input for `left`/`right` for axis `axis`. |
+| `get_y_axis(input: int = 0, axis: int)` | `float` | Gets input for `up`/`down` for axis `axis`. |
 | `connect_pressed(action: String, callable: Callable, input: int = 0, flags: int = 0)` | `Error` | Connects a signal to pressed-action defined in `signals`. |
 | `connect_released(action: String, callable: Callable, input: int = 0, flags: int = 0)` | `Error` | Connects a signal to released-action defined in `signals`. |
 | `disconnect_pressed(action: String, callable: Callable, input: int = 0)` | `Error` | Disconnects a signal to pressed-action defined in `signals`. |
